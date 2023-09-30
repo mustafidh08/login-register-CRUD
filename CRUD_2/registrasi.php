@@ -9,13 +9,30 @@
     <!-- Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700;800&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .signup-container {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 70px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container signup-container shadow p-5 bg-white">
         <?php
         // Koneksi ke database MySQL (sesuaikan dengan informasi koneksi Anda)
         $servername = "localhost";
@@ -65,29 +82,25 @@
         $conn->close();
         ?>
 
-        <div class="row">
-            <h1 class="mb-3">
-                Registration
-            </h1>
-        </div>
+        <h2 class="text-center fw-bold mb-4">Sign Up</h2>
         <form action="registrasi.php" method="post">
-            <div class="form-group">
-                <input class="form-control" type="text" name="fullname" placeholder="Full Name">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Username</label>
+                <input type="text" class="form-control" id="fullName" name="fullname" placeholder="Username" required>
             </div>
-            <div class="form-group">
-                <input class="form-control" type="email" name="email" placeholder="Email">
+            <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" name="email" placeholder="Email address" required>
             </div>
-            <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
+            <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword" name="password" placeholder="Password" required>
             </div>
-            <div class="form-btn">
-                <input class="btn btn-outline-primary" type="submit" value="Register" name="submit">
-            </div>
+            <button type="submit" value="Register" name="submit" class="btn btn-success btn-block">Sign Up</button>
         </form>
-        <p class="mt-3">Already have an account? <a href="login.php">Login Here</a></p>
-    </div>
+        <p class="mt-3">Already have an account? <a href="login.php">Login</a></p>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
